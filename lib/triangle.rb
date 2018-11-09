@@ -17,7 +17,8 @@ class Triangle
       :equilateral
     elsif two_equal_sides
       :isosceles
-    else :scalene
+    else 
+      :scalene
     end
   end
 
