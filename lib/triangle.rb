@@ -27,19 +27,6 @@ class Triangle
   end
 
   class TriangleError < StandardError
-
-#    def message1
-#      "A triangle's side cannot be negative or nul"
-#    end
-
-#    def message2
-#      "A triangle necessarily has three sides"
-#    end
-
-#    def message3
-#      "Violating triangle inequality is illegal"
-#    end
-
   end
 
 end
