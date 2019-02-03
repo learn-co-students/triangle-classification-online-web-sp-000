@@ -12,7 +12,8 @@ class Triangle
     if invalid_triangles
       # begin
         raise TriangleError
-      # rescue TriangleError
+      # rescue TriangleError => error
+        #error.message (should be defined in TriangleError class)
       # end
     else
       if length_1 == length_2 && length_2 == length_3
