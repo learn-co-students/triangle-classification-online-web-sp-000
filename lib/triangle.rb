@@ -8,17 +8,17 @@ class Triangle
   end
 
   def legal
-    if self.a == self.b && self.a == self.c
+    if self.a == self.b && self.a == self.c && self.b == self.c
       :equilateral
     elsif self.a == self.b || self.a == self.c || self.b == self.c
       :isosceles
-    else self.a != b && self.a != self.c
+    else self.a != b && self.a != self.c && self.b != self.c
       :scalene
     end
   end
 
   def kind
-    if self.a == 0
+    if self.a <= 0 || self.b <= 0 || self.c <= 0
       raise TriangleError
     elsif self.a + self.b <= self.c || self.a + self.c <= self.b || self.b + self.c <= self.a
       raise TriangleError
