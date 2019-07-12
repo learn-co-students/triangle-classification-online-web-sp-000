@@ -15,28 +15,30 @@ class Triangle
     
     sides = [@side_a, @side_b, @side_c]
     
-  
-    if @side_a == @side_b && @side_b == @side_c
-    kind =  :equilateral
-    elsif @side_a != @side_b && @side_a != @side_c && @side_b != @side_c
-    kind =  :scalene 
-    elsif @side_a == @side_b || @side_a == @side_c || @side_c == @side_b
-    kind =  :isosceles
-    
- 
-    elsif sides.any? {|side| side <= 0}
+    if sides.any? {|side| side <= 0}
       raise TriangleError 
-     
-    elsif sides[0] < sides[1] + sides[2] || sides[1] < sides[0] + sides[2] || sides[2] < sides[1] + sides[0]
-      raise TriangleError  
-   
-  end
+  
+    end 
+    
+    if @side_a == @side_b && @side_b == @side_c
+       :equilateral
+       
+    elsif @side_a != @side_b && @side_a != @side_c && @side_b != @side_c
+       :scalene 
+       
+    elsif @side_a == @side_b || @side_a == @side_c || @side_c == @side_b
+       :isosceles 
+       
+       
+    end
+    
+    
      
     
   end
     
+
 
     class TriangleError < StandardError
     end
-
 end
