@@ -17,7 +17,9 @@ class Triangle
     
     if sides.any? {|side| side <= 0}
       raise TriangleError 
-  
+    elsif  @side_a < @side_b + @side_c || @side_b < @side_a + @side_c || @side_c < @side_b + @side_a 
+     raise TriangleError
+    
     end 
     
     if @side_a == @side_b && @side_b == @side_c
@@ -31,13 +33,8 @@ class Triangle
     elsif @side_a == @side_b || @side_a == @side_c || @side_c == @side_b
        :isosceles 
       
-     
     end
     
-     if @side_a < @side_b + @side_c || @side_b < @side_a + @side_c || @side_c < @side_b + @side_a 
-     raise TriangleError
-     end 
-     
     
   end
     
