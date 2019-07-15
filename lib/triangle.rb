@@ -22,17 +22,21 @@ class Triangle
     
     if @side_a == @side_b && @side_b == @side_c
        :equilateral
+    
        
     elsif @side_a != @side_b && @side_a != @side_c && @side_b != @side_c
        :scalene 
        
+       
     elsif @side_a == @side_b || @side_a == @side_c || @side_c == @side_b
        :isosceles 
-       
-       
+      
+     
     end
     
-    
+     # if @side_a < @side_b + @side_c || @side_b < @side_a + @side_c || @side_c < @side_b + @side_a 
+     #    raise TriangleError
+     #  end 
      
     
   end
