@@ -15,17 +15,17 @@ end
 def illegal?
   length_array = [@length_1, @length_2, @length_3]
   if length_array.any? {|length| length == nil || length <= 0}
-    "illegal"
+    true
     elsif
     @length_1 + @length_2 <= @length_3 || @length_2 + @length_3 <= @length_1 || @length_1 + @length_3 <= @length_2
-    "illegal"
+    true
   else
-    "legal"
+    false
 end
 end
 
 def kind
-  if illegal? == "illegal"
+  if illegal? == true
     raise TriangleError
 elsif @length_1 == @length_2 && @length_2 == @length_3
   :equilateral
