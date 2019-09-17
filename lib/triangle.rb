@@ -1,3 +1,5 @@
 class Triangle
-  # write code here
+  def initialize(name)
+    @name = name
+  end
 end
