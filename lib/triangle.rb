@@ -9,32 +9,25 @@ class Triangle
   
   def kind 
     
-    #@side_a > 0 
-    #@side_b > 0 
-    #@side_c > 0 
+    @sides = (@side_a + @side_b + @side_c) / 2.0
+    @test = (@sides - @side_a) * (@sides - @side_b) * (@sides - @side_c)
+     
     
-    if @side_a = @side_b && @side_b = @side_c
-      :equilateral
-    elsif (@side_a = @side_b && @side_c != @side_a) || (@side_b = @side_c && @side_a != @side_b)
-      :isosceles
-    elsif @side_a != @side_b && @side_b != @side_c && @side_a != @side_c
-      :scalene
-    elsif 
+    if (@side_a <= 0 || @side_b <= 0 || @side_c <= 0 || @test <= 0)
       begin
         raise TriangleError
-      rescue TriangleError => error 
-        puts error.message
       end
+    elsif @side_a == @side_b && @side_b == @side_c
+      :equilateral
+    elsif @side_a == @side_b || @side_b == @side_c || @side_a == @side_c
+      :isosceles
+    else
+      :scalene
     end
     
   end
   
   class TriangleError < StandardError
-    
-    def message
-      
-    end
-    
   end
   
 end
