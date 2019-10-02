@@ -11,7 +11,7 @@ class Triangle
   end
 
   def kind
-    
+
     if @side_b && @side_a == @side_c && @side_b == @side_c
       :equilateral
     elsif
@@ -20,7 +20,7 @@ class Triangle
     elsif
       @side_a != @side_b && @side_a != @side_c && @side_b != @side_c
       :scalene
-    else
+    elsif
       @side_a == 0 && @side_b == 0 && @side_c == 0
       raise TriangleError
     end
