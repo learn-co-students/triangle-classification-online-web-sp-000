@@ -1,4 +1,3 @@
-require 'pry'
 class Triangle
  attr_accessor :side_1, :side_2, :side_3
  
@@ -20,14 +19,14 @@ class Triangle
   end
   
   def validate_triangle
-    binding.pry
-    if side_1 + side_2 > side_3
+    if (side_1 + side_2 > side_3) || (side_2 + side_3 > side_1) || (side_1 + side_3 > side_2)
       raise TriangleError 
- end
- end
- end
+    elsif side_1 <= 0 || side_2 <= 0 ||side_3 <= 0  
+      raise TriangleError
+    end
+end
+ 
 
 class TriangleError < StandardError
-  #if sum of a + b > c, or sum of a + c > b, or sum of b + c > a, raise error
-  #if any side is <= 0, raise error
+end
 end
