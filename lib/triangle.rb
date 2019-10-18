@@ -1,38 +1,31 @@
 class Triangle
-  
-attr_accessor :s1, :s2, :s3, :kind
-
-  def initialize(s1, s2, s3)
-    @s1 = s1
-    @s2 = s2
-    @s3 = s3
-end
-
-  def kind
-    if (s1 + s2) <= s3 || (s2 + s3) <= s1 || (s1 + s3) <= s2 || (s1 * s2 * s3 == 0)
-      
-
-        raise TriangleError
-
-        
-      elsif s1 == s2 && s1 == s3
-        self.kind = :equilateral
-      
-      elsif s1 == s2 || s1 == s3 || s2 == s3
-       self.kind = :isosceles
-       
-       else 
-        self.kind = :scalene
-      end
+  attr_reader :a, :b, :c
+  def initialize(a, b, c)
+    @a = a
+    @b = b
+    @c = c
   end
 
-class TriangleError < StandardError
- def message 
-   puts "not a triangle"
- end
-end
+  def kind
+    validate_triangle
+    if a == b && b == c
+      :equilateral
+    elsif a == b || b == c || a == c
+      :isosceles
+    else
+      :scalene
+    end
+  end
+
+  def validate_triangle
+    real_triangle = [(a + b > c), (a + c > b), (b + c > a)]
+    [a, b, c].each do |side|
+      real_triangle << false if side <= 0 
+    raise TriangleError if real_triangle.include?(false)
+    end
+  end
+
+  class TriangleError < StandardError
+  end
 
 end
-     
-
-
