@@ -12,12 +12,12 @@ class Triangle
   # Further, each side must be larger than 0.
   
   def kind
-    if (@side_1 + @side_2) <= @side_3 || (@side_1 + @side_3) <= @side_2 || 
-      (@side_3 + @side_2) <= @side_1 || (@side_1 * @side_2 * @side_3) == 0
+    if (side_1 + side_2) <= side_3 || (side_1 + side_3) <= side_2 || 
+      (side_3 + side_2) <= side_1 || (side_1 * side_2 * side_3) == 0
       raise TriangleError
-    elsif @side_1 == @side_2 && @side_1 == @side_3
+    elsif side_1 == side_2 && side_1 == side_3
       "equilateral".to_sym 
-    elsif @side_1 == @side_2 ||  @side_1 == @side_3 || @side_2 == @side_3 
+    elsif side_1 == side_2 ||  side_1 == side_3 || side_2 == side_3 
       "isosceles".to_sym 
     else 
       "scalene".to_sym 
