@@ -1,6 +1,6 @@
 class Triangle
   # write code here
-  attr_accessor :a, :b, :c, :equilateral
+  attr_accessor :a, :b, :c
   def initialize(a, b, c)
     @a = a
     @b = b
@@ -10,13 +10,13 @@ class Triangle
     [a,b,c].any?(0) || (a + b <= c || a+c <= b || b+c<=a)
   end
   def equilateral?
-    @a == @b && @b == @c
+    a == b && b == c
   end
   def isosceles?
-    @a == @b || @a == @c || @b == @c
+    a == b || a == c || b == c
   end
   def scalene?
-    @a != @b && @a != @c && @b != @c
+    a != b && a != c && b != c
   end
 
   def kind
