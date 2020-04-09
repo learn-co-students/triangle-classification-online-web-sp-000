@@ -16,6 +16,9 @@ class Triangle
       return :equilateral
     elsif @s2 == @s3 || @s1 == @s3 || @s1 == @s2
       return :isosceles
+    elsif !(@s2 == @s3 || @s1 == @s3 || @s1 == @s2)
+      return :scalene
+      
     else
       raise TriangleError
     end
