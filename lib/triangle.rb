@@ -12,13 +12,13 @@ class Triangle
   
   def kind
 
-    if @s1 == @s2 && @s2 == @s3
+    if s1 == s2 && s2 == s3
       return :equilateral
-    elsif @s2 == @s3 || @s1 == @s3 || @s1 == @s2
+    elsif s2 == s3 || s1 == s3 || s1 == s2
       return :isosceles
-    elsif !(@s2 == @s3 || @s1 == @s3 || @s1 == @s2)
+    elsif !(s2 == s3 || s1 == s3 || s1 == s2)
       return :scalene
-      
+    elsif 
     else
       raise TriangleError
     end
