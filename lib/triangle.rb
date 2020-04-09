@@ -12,12 +12,12 @@ class Triangle
   
   def kind
     if s1 == s2 && s2 == s3
-      return :equilateral
+      :equilateral ## good
     elsif s2 == s3 || s1 == s3 || s1 == s2
-      return :isosceles
+      :isosceles ## good
     elsif !(s2 == s3 || s1 == s3 || s1 == s2)
-      return :scalene
-    elsif (s1||s2||s3) == 0
+      :scalene
+    elsif s1 <= 0 || s2 <= 0 || s3 <= 0
     binding.pry
       raise TriangleError
     end
