@@ -16,6 +16,7 @@ class Triangle
     elsif s2 == s3 || s1 == s3 || s1 == s2
       :isosceles ## good
     elsif !(s2 == s3 || s1 == s3 || s1 == s2)
+    # binding.pry
       :scalene
     elsif s1 <= 0 || s2 <= 0 || s3 <= 0
     binding.pry
