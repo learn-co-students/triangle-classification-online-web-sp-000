@@ -10,19 +10,23 @@ class Triangle
     @s3 = s3
   end
   
-  def kind
-    if s1 == s2 && s2 == s3
-      :equilateral ## good
-    elsif s2 == s3 || s1 == s3 || s1 == s2
-      :isosceles ## good
-    elsif !(s2 == s3 || s1 == s3 || s1 == s2)
-    # binding.pry
-      :scalene
-    elsif s1 <= 0 || s2 <= 0 || s3 <= 0
-    binding.pry
+  def invalid_triangle
+    if (s1||s2||s3) <= 0 || (s1+s2) > s3 || (s2+s3) > s1 || (s3+s1) > s2
       raise TriangleError
     end
+  end
   
+  def kind
+    !invalid_triangle
+    if s1 == s2 && s2 == s3
+      :equilateral
+    elsif s2 == s3 || s1 == s3 || s1 == s2
+      :isosceles
+    elsif !(s2 == s3 || s1 == s3 || s1 == s2)
+      :scalene
+    else
+      raise TriangleError
+    end
   end
   
   class TriangleError < StandardError
