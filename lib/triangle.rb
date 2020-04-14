@@ -11,7 +11,8 @@ class Triangle
   end
   
   def invalid_triangle
-    if (s1||s2||s3) <= 0 || (s1+s2) > s3 || (s2+s3) > s1 || (s3+s1) > s2
+    if (s1||s2||s3) <= 0 || !((s1+s2) > s3) || !((s2+s3) > s1) || !((s3+s1) > s2)
+      # binding.pry
       raise TriangleError
     end
   end
@@ -22,10 +23,8 @@ class Triangle
       :equilateral
     elsif s2 == s3 || s1 == s3 || s1 == s2
       :isosceles
-    elsif !(s2 == s3 || s1 == s3 || s1 == s2)
-      :scalene
     else
-      raise TriangleError
+      :scalene
     end
   end
   
