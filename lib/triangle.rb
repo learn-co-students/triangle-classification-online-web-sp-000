@@ -1,4 +1,7 @@
 class Triangle
+  
+  attr_accessor :side_1, :side_2, :side_3
+  
   def initialize(side_1, side_2, side_3)
     @side_1 = side_1
     @side_2 = side_2
@@ -6,7 +9,8 @@ class Triangle
   end
   
   def kind
-    if @side_1 == @side_2 && @side_2 == @side_3 && @side_1 == @side_3
+    if @side_1 == @side_2 && @side_2 == @side_3 && @side_1 == @side_3 && 
+       @side_1 != 0 && @side != 0 && @side_3 != 0
       :equilateral
     elsif (@side_1 == @side_2 && @side_1 != @side_3 && @side_2 != @side_3) || 
           (@side_1 == @side_3 && @side_1 != @side_2 && @side_2 != @side_3) ||
@@ -15,18 +19,30 @@ class Triangle
     elsif @side_1 != @side_2 && @side_2 != @side_3 && @side_1 != @side_3
       :scalene
     elsif @side_1 == 0 && @side_2 == 0 && @side_3 == 0
-      raise TriangleError
+      begin 
+        raise TriangleError
+      rescue TriangleError => error
+        puts error.message
+      end
     elsif @side_1 < 0 || @side_2 < 0 || @side_3 < 0
-      raise TriangleError
+      begin 
+        raise TriangleError
+      rescue TriangleError => error
+        puts error.message
+      end
     elsif !(@side_1 + @side_2 > @side_3 && @side_2 + @side_3 > @side_1 && @side_1 + @side_3 > @side_2)
-      raise TriangleError
+      begin 
+        raise TriangleError
+      rescue TriangleError => error
+        puts error.message
+      end
     end
       
   end
   
   class TriangleError < StandardError
     def message
-      "This is customr error"
+      "This is custom message"
     end
   end
 end
