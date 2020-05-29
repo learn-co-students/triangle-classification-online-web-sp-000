@@ -39,7 +39,7 @@ class Triangle
     end
 
     class TriangleError < StandardError
-        
+        message = "Invalid dimensions. Please try again."
     end
 
 end
