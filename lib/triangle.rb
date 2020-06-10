@@ -10,7 +10,7 @@ class Triangle
   end
 
 def kind 
-  if self.first_size + self.second_size < self.third_size || self.second_size + self.third_size < self.first_size || self.first_size + self.third_size < self.second_size 
+  if self.first_size + self.second_size <= self.third_size || self.second_size + self.third_size <= self.first_size || self.first_size + self.third_size <= self.second_size 
     raise TriangleError
   elsif self.first_size == 0 && self.second_size == 0 && self.third_size == 0 
     raise TriangleError
