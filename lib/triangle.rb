@@ -1,3 +1,4 @@
+require 'pry'
 class Triangle
   # write code here
   def initialize (side1, side2, side3)
@@ -7,24 +8,21 @@ class Triangle
   end
 
   def kind
-    if side1 == side2 && side2 == side3
+    sum1 = @side1 + @side2
+    sum2 = @side2 + @side3
+    sum3 = @side1 + @side3
+    if @side1 <= 0 ||  @side2 <= 0 ||  @side3 <= 0 || sum1 <= @side3 || sum2 <= @side1 || sum3 <= @side2
+         raise TriangleError
+    elsif @side1 == @side2 && @side2 == @side3
        :equilateral
-     elsif side1 == side2 || side2 == side3 || side1 == side3
+     elsif @side1 == @side2 || @side2 == @side3 || @side1 == @side3
        :isosceles
-     elsif side1 != side2 && side2 != side3 && side1 != side3
+     elsif @side1 != @side2 && @side2 != @side3 && @side1 != @side3
        :scalene
-     else
-       begin
-          raise TriangleError
-       rescue TriangleError => error
-         puts error.message
-       end
     end
+
   end
 
   class TriangleError < StandardError
-    def message
-     "you must give the sum of the lengths of any two sides of a triangle always exceeds the length of the third side and each side must be larger than 0!"
-   end
   end
 end
