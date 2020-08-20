@@ -45,6 +45,8 @@ class Triangle
     def triangle_inequality
       "The sum of any two sides of your triangle must exceed the length of the third side."
     end
+
+    # Tried to make my own exceptions but tests didn't pass.
   end
 
 end
