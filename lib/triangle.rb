@@ -9,12 +9,12 @@ class Triangle
     if a <= 0 || b <= 0 || c <= 0
         raise TriangleError
       end
-      
+
       if a == nil || b == nil || c == nil
         raise TriangleError
       end
 
-     
+     if 
 
 
       @a = a
@@ -43,4 +43,5 @@ class TriangleError < StandardError
   def message
     "This is not a valid triangle."
   end
+end
 end 	
