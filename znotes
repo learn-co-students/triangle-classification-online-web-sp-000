@@ -1,0 +1,14 @@
+def triangle(a,b,c) 
+    if a + b > c && c + b > a && c + a > b 
+      case Array.new.push(a,b,c).uniq.length
+        when 3
+          'scalene'
+        when 2 
+          'isosceles'
+        when 1
+          'equilateral'
+       end
+    else
+      'not a triangle'
+    end
+end
