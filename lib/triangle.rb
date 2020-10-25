@@ -9,32 +9,22 @@ class Triangle
   end
 
   def kind
-    if a == b && a == c && a.positive?
+    if a == 0 || b == 0 || c == 0
+      raise TriangleError
+    elsif a.negative?|| b.negative? || c.negative?
+      raise TriangleError
+    elsif (a + b) <= c || (a + c) <= b || (b + c) <= a
+      raise TriangleError
+    elsif a == b && a == c
       :equilateral
     elsif a == b && a != c || a == c && a != b || b == c && b != a
       :isosceles
     elsif a != b && b!=c
       :scalene
-    elsif a == 0 || b == 0 || c == 0
-      begin
-        raise TriangleError
-      rescue TriangleError
-      end
-    elsif a.negative?|| b.negative? || c.negative?
-      begin
-        raise TriangleError
-      rescue TriangleError => error
-      end
-    else (a + b) < c || (a + c) < b || (a + c) < b
-      begin
-        raise TriangleError
-      rescue TriangleError
-      end
     end
   end
 
   class TriangleError < StandardError
-    nil
   end
 
 end

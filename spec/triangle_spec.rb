@@ -1,5 +1,3 @@
-require 'pry'
-
 describe 'Triangle' do
 
   it 'knows that equilateral triangles have equal sides' do
@@ -45,8 +43,6 @@ describe 'Triangle' do
   it 'knows that triangles with no size are illegal' do
     expect{Triangle.new(0, 0, 0).kind}.to raise_error(Triangle::TriangleError)
   end
-
-  #binding.pry
 
   it 'knows that triangles with negative sides are illegal' do
     expect{Triangle.new(3, 4, -5).kind}.to raise_error(Triangle::TriangleError)
