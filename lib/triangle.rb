@@ -24,8 +24,8 @@ class Triangle
       begin
         raise TriangleError
       rescue TriangleError => error
-      #end
-    else (a + b) < c || (a + c) < b || (a + c) < b #sides violating the triangle inequality
+      end
+    else (a + b) < c || (a + c) < b || (a + c) < b
       begin
         raise TriangleError
       rescue TriangleError
