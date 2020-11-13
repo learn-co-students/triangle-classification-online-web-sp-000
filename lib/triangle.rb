@@ -1,18 +1,15 @@
 class Triangle
 
 	def initialize(side_1, side_2, side_3)
-		@side_1 = side_1
-		@side_2 = side_2
-		@side_3 = side_3
+		@sides = [side_1, side_2, side_3].sort
 	end
 
 	def kind
-		raise TriangleError if @side_1 <= 0 || @side_2 <= 0 || @side_3 <= 0
-		raise TriangleError if @side_1 + @side_2 <= @side_3 || @side_1 + @side_3 <= @side_2 || @side_2 + @side_3 <= @side_1
+		raise TriangleError if @sides.any?{|side| side <= 0} || @sides[0] + @sides[1] <= @sides[2]
 
-		if @side_1 == @side_2 && @side_1 == @side_3
+		if @sides.uniq.size == 1
 			:equilateral
-		elsif @side_1 == @side_2 || @side_1 == @side_3 || @side_2 == @side_3
+		elsif @sides.uniq.size == 2
 			:isosceles
 		else
 			:scalene
