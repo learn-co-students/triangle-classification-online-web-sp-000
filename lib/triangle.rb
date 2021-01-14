@@ -11,11 +11,11 @@ class Triangle
   def kind
     if a <= 0 || b <= 0 || c <= 0
       raise TriangleError
-    elsif (@a + @b) < @c  
+    elsif (@a + @b) <= @c  
       raise TriangleError
-    elsif @b + @c < @a
+    elsif @b + @c <= @a
       raise TriangleError
-    elsif @a == 2 && @b == 4 && @c == 2 
+    elsif @a + @c <= @b
       raise TriangleError
     elsif a == b && b == c #if all sides match
       return :equilateral 
