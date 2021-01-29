@@ -5,6 +5,7 @@ class Triangle
     @b = b
     @c = c
     @sides = [a, b, c]
+    #must sort! @sides, or come up with longer condition to raise error
     @sides.sort!
   end
 
