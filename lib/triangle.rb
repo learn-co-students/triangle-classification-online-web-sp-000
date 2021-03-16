@@ -10,9 +10,9 @@ class Triangle
   def kind 
     case input 
 
-    case a == b && b == c
+    when a == b && b == c
      puts ":equilateral"
-     case a == b || b == c || a == c
+     when a == b || b == c || a == c
      puts ":isosceles"
     else
       puts ":scalene"
