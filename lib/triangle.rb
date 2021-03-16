@@ -8,7 +8,7 @@ class Triangle
     @c = c
     
   def kind 
-    case input 
+    case Triangle.new  
  
     when a == b && b == c && a == c 
      :equilateral
