@@ -8,16 +8,17 @@ class Triangle
     @c = c
   end 
   
+  
   def kind 
+    validate_triangle
+    
     case  
- 
     when a == b && b == c && a == c 
      :equilateral 
      when a == b || b == c || a == c
      :isosceles
     else
      :scalene
-    end
   end 
 end
 
@@ -27,14 +28,11 @@ end
       real_triangle << false if side <= 0 
     raise TriangleError if real_triangle.include?(false)
     raise TriangleError if !side 
-    rescue TriangleError => error
-    puts error.message 
     end
-end 
+  end 
 
 class TriangleError < StandardError 
-  def message 
-    "all sides of triangle must be >= 0 and there must be three sides" 
   end 
 end 
+
   
