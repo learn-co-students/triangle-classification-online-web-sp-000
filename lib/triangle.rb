@@ -6,12 +6,13 @@ class Triangle
     @a = a
     @b = b
     @c = c
-    
+  end 
+  
   def kind 
     case  
  
     when a == b && b == c && a == c 
-     :equilateral
+     :equilateral 
      when a == b || b == c || a == c
      :isosceles
     else
@@ -35,6 +36,5 @@ class TriangleError < StandardError
   def message 
     "all sides of triangle must be >= 0 and there must be three sides" 
   end 
-end 
 end 
   
