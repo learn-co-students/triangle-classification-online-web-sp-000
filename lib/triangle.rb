@@ -1,5 +1,5 @@
 class Triangle
-  attr_reader :a, :b, :class
+  attr_reader :a, :b, :c
   def initialize(a, b, c)
     @a = a 
     @b = b
@@ -10,7 +10,7 @@ class Triangle
     validate_triangle
     if a==b && b == c 
       :equilateral
-    elsif
+    elsif a == b || b == c || a == c
       :isosceles
     else
       :scalene
